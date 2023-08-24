@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "example": "ts-node src/index.ts"
   },
   "dependencies": {
     "@ckb-lumos/lumos": "^0.21.0-next.0",

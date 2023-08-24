@@ -25,5 +25,5 @@ npm install
 Run the example:
 
 ```shell
-npm run start
+npm run example
 ```
