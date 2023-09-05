@@ -1,12 +1,13 @@
 # Your first spore-sdk example
 
-## About
+## Introduction
 
-This is a simple example for beginners to try creating a spore on Nervos CKB.
+This is a `hello world` example of [spore-sdk](https://github.com/sporeprotocol/spore-sdk) showing you how to create a spore on [Nervos CKB](https://www.nervos.org/).
+
 From the example, you should learn how to:
 
-1. Construct a transaction to create a spore on-chain with the [spore-sdk](https://github.com/sporeprotocol/spore-sdk)
-2. Sign the transaction with a [Secp256k1Blake160 Sign-all](https://github.com/nervosnetwork/ckb-system-scripts/blob/master/c/secp256k1_blake160_sighash_all.c) lock Wallet
+1. Create a spore on-chain with [spore-sdk](https://github.com/sporeprotocol/spore-sdk)
+2. Protect your spores with the [Secp256k1Blake160 Sign-all](https://github.com/nervosnetwork/ckb-system-scripts/blob/master/c/secp256k1_blake160_sighash_all.c) lock
 
 ## Run
 
