@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@ckb-lumos/lumos": "^0.21.0-next.0",
-    "@spore-sdk/core": "0.1.0-beta.9"
+    "@spore-sdk/core": "0.1.0-beta.12"
   },
   "devDependencies": {
     "ts-node": "^10.9.0",
