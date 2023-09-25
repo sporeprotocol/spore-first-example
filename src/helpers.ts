@@ -1,8 +1,8 @@
 import { defaultEmptyWitnessArgs, updateWitnessArgs, isScriptValueEquals } from '@spore-sdk/core';
-import { SporeConfig,  getSporeConfig } from '@spore-sdk/core';
-import { hd, helpers, HexString, RPC } from '@ckb-lumos/lumos';
+import { Address, Hash, Script, HexString } from '@ckb-lumos/base';
 import { secp256k1Blake160 } from '@ckb-lumos/common-scripts';
-import { Address, Hash, Script } from '@ckb-lumos/base';
+import { hd, helpers, RPC } from '@ckb-lumos/lumos';
+import { getSporeConfig } from '@spore-sdk/core';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 
@@ -18,11 +18,11 @@ export interface Wallet {
  * Create a CKB Default Lock (Secp256k1Blake160 Sign-all) Wallet by a private-key and a SporeConfig,
  * providing lock/address, and functions to sign message/transaction and send the transaction on-chain.
  */
-export function createDefaultLockWallet(privateKey: HexString, config?: SporeConfig): Wallet {
-  config = config ?? getSporeConfig();
+export function createDefaultLockWallet(privateKey: HexString): Wallet {
+  const config = getSporeConfig();
 
   // Generate a lock script from the private key
-  const Secp256k1Blake160 = config.lumos.SCRIPTS['SECP256K1_BLAKE160'];
+  const Secp256k1Blake160 = config.lumos.SCRIPTS['SECP256K1_BLAKE160']!;
   const lock: Script = {
     codeHash: Secp256k1Blake160.CODE_HASH,
     hashType: Secp256k1Blake160.HASH_TYPE,
