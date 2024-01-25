@@ -6,12 +6,12 @@
     "example": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@ckb-lumos/lumos": "^0.21.0-next.0",
-    "@spore-sdk/core": "0.1.0-beta.12"
+    "@ckb-lumos/lumos": "^0.22.0-next.4",
+    "@spore-sdk/core": "0.2.0-beta.2"
   },
   "devDependencies": {
     "ts-node": "^10.9.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.3.3"
   },
   "engines": {
     "node": ">=18.0.0"

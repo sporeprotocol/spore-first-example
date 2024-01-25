@@ -1,8 +1,6 @@
-import { defaultEmptyWitnessArgs, updateWitnessArgs, isScriptValueEquals } from '@spore-sdk/core';
-import { Address, Hash, Script, HexString } from '@ckb-lumos/base';
-import { secp256k1Blake160 } from '@ckb-lumos/common-scripts';
-import { hd, helpers, RPC } from '@ckb-lumos/lumos';
-import { getSporeConfig } from '@spore-sdk/core';
+import { defaultEmptyWitnessArgs, updateWitnessArgs, isScriptValueEquals, getSporeConfig } from '@spore-sdk/core';
+import { hd, helpers, RPC, Address, Hash, Script, HexString } from '@ckb-lumos/lumos';
+import { secp256k1Blake160 } from '@ckb-lumos/lumos/common-scripts';
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
 
@@ -22,10 +20,10 @@ export function createDefaultLockWallet(privateKey: HexString): Wallet {
   const config = getSporeConfig();
 
   // Generate a lock script from the private key
-  const Secp256k1Blake160 = config.lumos.SCRIPTS['SECP256K1_BLAKE160']!;
+  const defaultLock = config.lumos.SCRIPTS.SECP256K1_BLAKE160!;
   const lock: Script = {
-    codeHash: Secp256k1Blake160.CODE_HASH,
-    hashType: Secp256k1Blake160.HASH_TYPE,
+    codeHash: defaultLock.CODE_HASH,
+    hashType: defaultLock.HASH_TYPE,
     args: hd.key.privateKeyToBlake160(privateKey),
   };
 
@@ -99,7 +97,7 @@ export function createDefaultLockWallet(privateKey: HexString): Wallet {
  * Fetch an image file from local and return an ArrayBuffer.
  * This function is only available in the Node environment.
  */
-export async function fetchLocalFile(src: string) {
+export async function fetchLocalFile(src: string): Promise<Uint8Array> {
   const buffer = readFileSync(resolve(__dirname, src));
-  return new Uint8Array(buffer).buffer;
+  return new Uint8Array(buffer);
 }
