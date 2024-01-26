@@ -1,8 +1,10 @@
 import { createSpore } from '@spore-sdk/core';
 import { createDefaultLockWallet, fetchLocalFile } from './helpers';
+import { ALICE } from "./test-keys";
 
 async function main() {
-  const wallet = createDefaultLockWallet('0xc153ee57dc8ae3dac3495c828d6f8c3fef6b1d0c74fc31101c064137b3269d6d');
+  // Note: ALICE.PRIVATE_KEY is a test key, please DO NOT use it in production environments!
+  const wallet = createDefaultLockWallet(ALICE.PRIVATE_KEY);
 
   const { txSkeleton, outputIndex } = await createSpore({
     data: {
