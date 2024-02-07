@@ -8,7 +8,7 @@ async function main() {
 
   const { txSkeleton, outputIndex } = await createSpore({
     data: {
-      contentType: 'image/jpg',
+      contentType: 'image/jpeg',
       content: await fetchLocalFile('./image.jpg'),
     },
     toLock: wallet.lock,
